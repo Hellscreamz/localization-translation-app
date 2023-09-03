@@ -1,4 +1,3 @@
-// validation.js
 const XLSX = require('xlsx');
 
 const expectedColumns = ['section', 'placeholder', 'untranslated', 'translated'];

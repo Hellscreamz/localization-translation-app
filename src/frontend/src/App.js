@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css'; // Import the CSS file
+import './App.css';
 
 function App() {
     const [file, setFile] = useState(null);
@@ -44,8 +44,6 @@ function App() {
             const url = window.URL.createObjectURL(new Blob([response.data]));
             setDownloadLink(url);
             setUploadComplete(true);
-            // localStorage.setItem('output', response.data)
-            sessionStorage.setItem('output', response.data)
         } catch (error) {
             console.error('Error uploading file:', error);
         }
@@ -54,7 +52,7 @@ function App() {
     const handleDownloadClick = async () => {
         window.location.reload();
         try {
-            await axios.get('http://localhost:3000/delete-json');
+            await axios.get('http://localhost:3000/download-json');
         } catch (error) {
             console.error('Error deleting JSON file:', error);
         }

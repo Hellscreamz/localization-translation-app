@@ -1,1 +1,0 @@
-Here is uploaded excel file, if we don't have errors he is instantly deleted to keep memory up, if we hit an error he will remain here, so we can expect it if needs.
