@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
+import { REACT_APP_PROD_DOWNLOAD_URL, REACT_APP_PROD_UPLOAD_URL } from './utils/urls';
 import './App.css';
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:3000/upload', formData, {
+            const response = await axios.post(REACT_APP_PROD_UPLOAD_URL, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },
@@ -52,7 +54,7 @@ function App() {
     const handleDownloadClick = async () => {
         window.location.reload();
         try {
-            await axios.get('http://localhost:3000/download-json');
+            await axios.get(REACT_APP_PROD_DOWNLOAD_URL);
         } catch (error) {
             console.error('Error deleting JSON file:', error);
         }
