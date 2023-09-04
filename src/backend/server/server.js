@@ -3,6 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
+const helmet = require('helmet');
 
 const { sessionOptions, corsOptions} = require('../config/server-config')
 const { FileUpload } = require('../controllers/Upload');
@@ -11,8 +12,8 @@ const { FileDownload } = require('../controllers/Download');
 const app = express();
 const port = process.env.PORT;
 
+app.use(helmet());
 app.use(session(sessionOptions));
-
 app.use(cors(corsOptions));
 
 const storage = multer.memoryStorage();
